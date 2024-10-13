@@ -17,7 +17,7 @@ export const menu = [
       },
       {
         id: 3,
-        title: "CRUD User Data",
+        title: "Applicant Overview",
         url: "/user",
         icon: "fa-solid fa-users",
       },
@@ -29,15 +29,15 @@ export const menu = [
     listItems: [
       {
         id: 4,
-        title: "Manage User Roles",
+        title: "Manage Job Openings",
         url: "/userRoles",
         icon: "fa-solid fa-user-shield",
       },
       {
         id: 5,
-        title: "Monitor Performance",
-        url: "/monitorPerformance",
-        icon: "fa-solid fa-chart-line",
+        title: "Schedule Interviews",
+        url: "/interviewScheduling",
+        icon: "fa-solid fa-clipboard-question",
       },
       {
         id: 6,

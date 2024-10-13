@@ -13,7 +13,7 @@ import Navbar from "../components/navbar/Navbar";
 import Menu from "../components/menu/Menu";
 import Footer from "../components/footer/Footer";
 import Login from "./login/Login";
-import "../styles/global.css"
+import "../styles/global.css";
 
 const Layout = () => {
   return (
@@ -42,18 +42,18 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-      {
-        path: "/user",
-        element: <CRUDUserData />,
-      },
+      // {
+      //   path: "/user",
+      //   element: <CRUDUserData />,
+      // },
       {
         path: "/userRoles",
         element: <ManageUserRoles />,
       },
-      {
-        path: "/monitorPerformance",
-        element: <MonitorPerformance />,
-      },
+      // {
+      //   path: "/monitorPerformance",
+      //   element: <MonitorPerformance />,
+      // },
       {
         path: "*",
         element: <Navigate to="/" />, // Redirect to Home for unmatched routes
