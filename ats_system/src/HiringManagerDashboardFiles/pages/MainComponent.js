@@ -1,8 +1,5 @@
 import React from "react";
 import Home from "./home/Home";
-import MonitorPerformance from "./monitorPerformance/MonitorPerformance";
-import ManageUserRoles from "./manageUserRoles/ManageUserRoles";
-import CRUDUserData from "./crudUserData/CRUDUserData";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -14,6 +11,10 @@ import Menu from "../components/menu/Menu";
 import Footer from "../components/footer/Footer";
 import Login from "./login/Login";
 import "../styles/global.css";
+import Applicant from "../pages/applicantOverview/ApplicantOverview"
+import Interview from "../pages/interviewScheduling/InterviewScheduling"
+import { Profile } from "./profile/Profile";
+import ManageJobOpenings from "./manageJobOpenings/ManageJobOpenings";
 
 const Layout = () => {
   return (
@@ -42,18 +43,22 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-      // {
-      //   path: "/user",
-      //   element: <CRUDUserData />,
-      // },
       {
-        path: "/userRoles",
-        element: <ManageUserRoles />,
+        path: "/interviewScheduling",
+        element: <Interview />,
       },
-      // {
-      //   path: "/monitorPerformance",
-      //   element: <MonitorPerformance />,
-      // },
+      {
+        path: "/applicantOverview",
+        element: <Applicant />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
+        path: "/manageJobOpenings",
+        element: <ManageJobOpenings />,
+      },
       {
         path: "*",
         element: <Navigate to="/" />, // Redirect to Home for unmatched routes

@@ -13,7 +13,7 @@ const Home = () => {
 
   // Set the name of the page in the browser
   useEffect(() => {
-    document.title = "Home - Admin";
+    document.title = "Home - Hiring Manager";
     fetchJobApplicationsData();
     fetchSuccessfulHiresData();
     fetchCandidateDistributionData();

@@ -18,7 +18,7 @@ export const menu = [
       {
         id: 3,
         title: "Applicant Overview",
-        url: "/user",
+        url: "/applicantOverview",
         icon: "fa-solid fa-users",
       },
     ],
@@ -30,7 +30,7 @@ export const menu = [
       {
         id: 4,
         title: "Manage Job Openings",
-        url: "/userRoles",
+        url: "/manageJobOpenings",
         icon: "fa-solid fa-user-shield",
       },
       {

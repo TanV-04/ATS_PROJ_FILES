@@ -1,5 +1,5 @@
 import React from 'react';
-import MainComponent from './AdminDashboardFiles/pages/MainComponent';
+import MainComponent from './HiringManagerDashboardFiles/pages/MainComponent';
 import './App.css';
 
 function App() {

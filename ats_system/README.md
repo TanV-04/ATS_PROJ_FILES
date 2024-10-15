@@ -1,6 +1,7 @@
 # packages
 
 - npm install react-router-dom
+- npm install axios (for making API requests)
 - npm install -D tailwindcss postcss autoprefixer
 - npx tailwindcss init -p
 - npm install @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons
