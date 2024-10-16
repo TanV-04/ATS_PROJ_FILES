@@ -1,0 +1,82 @@
+/* Profile.css */
+
+body {
+  background-color: #f4f7fa; /* Light background for the entire page */
+  font-family: 'Arial', sans-serif; /* Font style */
+  color: #333; /* Default text color */
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.avatarWrapper {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #007bff; /* Blue border */
+  background-color: #fff; /* White background for avatar */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.avatarWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the avatar area */
+}
+
+.profile {
+  text-align: center;
+  background: white; /* White background for profile section */
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  margin: 20px auto;
+  max-width: 400px; /* Max width for profile card */
+}
+
+.profile p {
+  margin: 10px 0; /* Space between paragraphs */
+  font-size: 16px; /* Font size for text */
+  line-height: 1.5; /* Line height for readability */
+  color: black; /* Set text color to black for visibility */
+}
+
+.profile p strong {
+  color: #007bff; /* Highlight for labels */
+}
+
+.floating-action-button {
+  position: fixed; /* Fixed position for floating button */
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff; /* Blue background for button */
+  color: black; /* White text color */
+  border: none;
+  border-radius: 50%;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for button */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.floating-action-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .avatarWrapper {
+    width: 120px; /* Smaller size for mobile */
+    height: 120px;
+  }
+
+  .profile {
+    width: 90%; /* Responsive width */
+    margin: 10px auto; /* Margin adjustments */
+  }
+}

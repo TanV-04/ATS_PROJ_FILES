@@ -9,3 +9,10 @@
 - npm install @mui/material @mui/icons-material
 - npm install @emotion/react @emotion/styled
 - npm install recharts
+- npm install react-icons
+- npm install react-toastify
+- npm install reactstrap
+- npm install bootstrap (provides react components for bootstrap)
+- npm install jsonwebtoken
+- npm install multer (install a middleware for handling multipart/form-data, used for uploading files)
+

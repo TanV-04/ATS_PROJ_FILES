@@ -119,7 +119,7 @@ export const Modal = ({ closeModal }) => {
       <div className="modalContainer">
         <div className="titleCloseButton">
           <button onClick={() => closeModal(false)}>
-            <i className="fa-solid fa-xmark" />{" "}
+            <i className="fa-solid fa-xmark" />
           </button>
         </div>
         <div className="title">
