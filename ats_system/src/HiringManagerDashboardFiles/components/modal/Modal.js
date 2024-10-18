@@ -44,7 +44,7 @@ export const Modal = ({ closeModal }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/job-postings",
+        "http://localhost:5000/job-postings",
         jobData
       );
       if (response.status === 201) {

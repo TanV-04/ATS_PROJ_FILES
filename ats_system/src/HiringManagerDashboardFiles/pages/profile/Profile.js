@@ -5,7 +5,7 @@ import "./profile.css";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import UploadAvatar from "./UploadAvatar";
 
-export const Profile = ({ token }) => {
+const Profile = ({ token }) => {
   const [user, setUser] = useState({});
   const [openModal, setOpenModal] = useState(false);
   const [isHiringMgrUpdated, setIsHiringMgrUpdated] = useState(false);
@@ -99,3 +99,5 @@ export const Profile = ({ token }) => {
     </>
   );
 };
+
+export default Profile;

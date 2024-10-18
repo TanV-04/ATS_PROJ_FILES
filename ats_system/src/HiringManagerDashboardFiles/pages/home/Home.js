@@ -34,7 +34,7 @@ const Home = () => {
   const fetchSuccessfulHiresData = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/successful-hires"
+        "http://localhost:5000/successful-hires"
       );
       const data = await response.json();
       setSuccessfulHiresData(data);
@@ -46,7 +46,7 @@ const Home = () => {
   const fetchCandidateDistributionData = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/candidate-distribution"
+        "http://localhost:5000/candidate-distribution"
       );
       const data = await response.json();
       setCandidateDistributionData(data);

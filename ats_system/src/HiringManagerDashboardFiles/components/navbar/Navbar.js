@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import "../navbar/navbar.css";
 
-const Navbar = () => {
+const Navbar = ({showSearchIcon}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -22,7 +22,7 @@ const Navbar = () => {
       </div>
 
       <div className={`icons ${isMenuOpen ? "open" : ""}`}>
-        <i class="fa-solid fa-magnifying-glass" />
+        {showSearchIcon && <i class="fa-solid fa-magnifying-glass"/>}
         <i class="fa-brands fa-uncharted" /> {/* app */}
         <i class="fa-solid fa-expand" />
         <div className="notification">
@@ -30,7 +30,10 @@ const Navbar = () => {
           <span>1</span>
         </div>
         <div className="user">
-          <i className="fa-regular fa-user mr-2" />
+          {/* <i className="fa-regular fa-user mr-2" /> */}
+          <Link to="/profile">
+            <i className="fa-regular fa-user mr-2" />
+          </Link>
         </div>
         <i class="fa-solid fa-gear" />
       </div>

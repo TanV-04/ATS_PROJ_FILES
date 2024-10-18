@@ -41,23 +41,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-// create a post request at /upload (where the server listens)
-app.post(
-  "/upload",
-  authenticateToken, // uses authenticateToken middleware to ensure that the user is authenticated
-  upload.single("files"), // process the uploaded file
-  async (req, res) => {
-    try {
-      const fileUrl = `/uploads/${req.file.filename}`; // constructed url for the uploaded file
-
-      await UserProfile.findByIdAndUpdate(req.userId, { avatarUrl: fileUrl }); // update the user's profile with the new avatar URL after uploading the file
-
-      res.json({ id: req.userId, url: fileUrl }); 
-    } catch (error) {
-      res.status(500).json({ message: error.message });
-    }
-  }
-);
+// schemas
 
 // job application schema
 const JobApplicationSchema = new mongoose.Schema({
@@ -75,13 +59,6 @@ const CandidateDistributionSchema = new mongoose.Schema({
   count: Number,
 });
 
-const JobApplication = mongoose.model("JobApplication", JobApplicationSchema);
-const SuccessfulHire = mongoose.model("SuccessfulHire", SuccessfulHireSchema);
-const CandidateDistribution = mongoose.model(
-  "CandidateDistribution",
-  CandidateDistributionSchema
-);
-
 // user profile schema
 const UserProfileSchema = new mongoose.Schema({
   username: String,
@@ -94,10 +71,27 @@ const UserProfileSchema = new mongoose.Schema({
   specialization: String,
 });
 
+const applicantSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true },
+  phone: { type: String, required: true },
+  resume: { type: String, required: true },
+  appliedPosition: { type: String, required: true },
+  status: { type: String, required: true },
+  applicationDate: { type: Date, default: Date.now },
+  specialization: { type: String, required: true },
+  profilePicture: { type: String, required: true },
+});
+
+// models
+const JobApplication = mongoose.model("JobApplication", JobApplicationSchema);
+const SuccessfulHire = mongoose.model("SuccessfulHire", SuccessfulHireSchema);
+const CandidateDistribution = mongoose.model("CandidateDistribution",CandidateDistributionSchema);
 const UserProfile = mongoose.model("UserProfile", UserProfileSchema); // user model
+const Applicant = mongoose.model("Applicant", Applicant);
 
 // template endpoints (to fetch data and handle uploads)
-app.get("/api/job-applications", async (req, res) => {
+app.get("/job-applications", async (req, res) => {
   try {
     const applications = await JobApplication.find();
     res.json(applications);
@@ -106,7 +100,7 @@ app.get("/api/job-applications", async (req, res) => {
   }
 });
 
-app.get("/api/successful-hires", async (req, res) => {
+app.get("/successful-hires", async (req, res) => {
   try {
     const hires = await SuccessfulHire.find();
     res.json(hires);
@@ -115,7 +109,7 @@ app.get("/api/successful-hires", async (req, res) => {
   }
 });
 
-app.get("/api/candidate-distribution", async (req, res) => {
+app.get("/candidate-distribution", async (req, res) => {
   try {
     const distribution = await CandidateDistribution.find();
     res.json(distribution);
@@ -144,6 +138,33 @@ app.get("/profile", authenticateToken, async (req, res) => {
       return res.status(404).json({ message: "user not found" });
     }
     res.json(userProfile);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// create a post request at /upload (where the server listens)
+app.post(
+  "/upload",
+  authenticateToken, // uses authenticateToken middleware to ensure that the user is authenticated
+  upload.single("files"), // process the uploaded file
+  async (req, res) => {
+    try {
+      const fileUrl = `/uploads/${req.file.filename}`; // constructed url for the uploaded file
+
+      await UserProfile.findByIdAndUpdate(req.userId, { avatarUrl: fileUrl }); // update the user's profile with the new avatar URL after uploading the file
+
+      res.json({ id: req.userId, url: fileUrl });
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  }
+);
+
+app.get("/applicant", async (req, res) => {
+  try {
+    const applicants = await Applicant.find();
+    res.json(applicants);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

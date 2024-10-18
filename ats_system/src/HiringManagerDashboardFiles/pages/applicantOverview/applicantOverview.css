@@ -1,0 +1,75 @@
+body {
+  background: linear-gradient(135deg, #1e1e2f, #2e2e4f);
+  font-family: "Arial", sans-serif;
+  color: #eaeaea;
+}
+
+.applicantList {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+
+.applicantCard {
+  background-color: rgba(255, 255, 255, 0.1); /*semitransparent background*/
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 15px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: medium;
+  width: 280px;
+  position: relative;
+}
+
+.applicantCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.applicantInfo {
+  margin-bottom: 12px;
+}
+
+strong {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.applicantCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6c63ff, #fbc2eb);
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.applicantCard > div {
+  position: relative;
+  z-index: 1;
+}
+
+.profilePictureContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.profilePicture {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+}

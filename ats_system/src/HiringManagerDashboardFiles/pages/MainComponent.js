@@ -5,21 +5,24 @@ import {
   RouterProvider,
   Outlet,
   Navigate,
+  useLocation,
 } from "react-router-dom";
 import Navbar from "../components/navbar/Navbar";
 import Menu from "../components/menu/Menu";
 import Footer from "../components/footer/Footer";
 import Login from "./login/Login";
 import "../styles/global.css";
-import Applicant from "../pages/applicantOverview/ApplicantOverview"
-import Interview from "../pages/interviewScheduling/InterviewScheduling"
-import { Profile } from "./profile/Profile";
+import Applicant from "../pages/applicantOverview/ApplicantOverview";
+import Interview from "../pages/interviewScheduling/InterviewScheduling";
+import Profile from "./profile/Profile";
 import ManageJobOpenings from "./manageJobOpenings/ManageJobOpenings";
 
 const Layout = () => {
+  const location = useLocation();
+  const showSearchIcon = location.pathname === "/applicantOverview"
   return (
     <div className="main">
-      <Navbar />
+      <Navbar showSearchIcon={!showSearchIcon} />
       <div className="container">
         <div className="menuContainer">
           <Menu />
