@@ -12,8 +12,8 @@
 }
 
 .modalContainer {
-  width: 80%; /* Reduced width */
-  max-width: 350px; /* Further reduced max-width */
+  width: 90%; 
+  max-width: 400px; 
   height: auto;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -79,7 +79,7 @@ form {
 }
 
 .formGroup label {
-  margin-bottom: 3px; /* Further reduced margin */
+  margin-bottom: px; /* Further reduced margin */
   color: #666;
   font-weight: 500;
   font-size: 0.85rem; /* Further reduced font size */

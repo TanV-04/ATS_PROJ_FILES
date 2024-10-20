@@ -3,8 +3,9 @@ import axios from "axios";
 import { countriesData } from "../../../countriesData";
 import { departmentsData } from "../../../departmentsData";
 import "../modal/modal.css";
+import { jobOpeningsData } from "../../../jobOpeningsData";
 
-export const Modal = ({ closeModal }) => {
+export const Modal = ({ closeModal, jobData }) => {
   const [jobTitle, setJobTitle] = useState("");
   const [jobDescription, setJobDescription] = useState("");
   const [qualifications, setQualifications] = useState([""]);
@@ -13,8 +14,34 @@ export const Modal = ({ closeModal }) => {
   const [deadline, setDeadline] = useState("");
   const [roles, setRoles] = useState([]);
   const [selectedRole, setSelectedRole] = useState("");
+  const [salary, setSalary] = useState("");
   const [error, setError] = useState("");
   // const [currentQualification, setCurrentQualification] = useState("");
+
+  const salaryRanges = [
+    "Select a salary range",
+    "$30,000 - $40,000",
+    "$40,000 - $50,000",
+    "$50,000 - $60,000",
+    "$60,000 - $70,000",
+    "$70,000 - $80,000",
+    "$80,000 - $90,000",
+    "$90,000 - $100,000",
+    "$100,000+",
+  ];
+
+  useEffect(() => {
+    if (jobData) {
+      setJobTitle(jobData.title);
+      setJobDescription(jobData.description);
+      setQualifications(jobData.qualifications || [""]);
+      setLocation(jobData.location);
+      setDepartment(jobData.department);
+      setSelectedRole(jobData.role);
+      setDeadline(jobData.applicationDeadline);
+      setSalary(jobData.salary);
+    }
+  }, [jobData]);
 
   const submitjob = async () => {
     if (
@@ -24,6 +51,7 @@ export const Modal = ({ closeModal }) => {
       !department ||
       !selectedRole ||
       !deadline ||
+      salary === "Select a salary range" ||
       qualifications.some((q) => !q)
     ) {
       setError(
@@ -33,32 +61,39 @@ export const Modal = ({ closeModal }) => {
     }
 
     const jobData = {
-      jobTitle,
-      jobDescription,
-      qualifications: qualifications.filter((q) => q),
+      title: jobTitle,
       location,
-      department,
-      selectedRole,
-      deadline,
+      salary,
+      description: jobDescription,
+      qualifications: qualifications.filter((q) => q),
+      role: selectedRole,
+      applicationDeadline: deadline,
     };
 
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/job-postings",
-        jobData
-      );
-      if (response.status === 201) {
-        console.log("job posting successfully added", response.data);
-        alert("job posting added successfully");
-      } else {
-        console.error("error adding job posting", response.error);
-        alert("failed to add job posting");
-      }
-    } catch (error) {
-      console.error("error while submitting job data to the backend: ", error);
-      alert("an error occurred while submitting the job posting");
+    const departmentIndex = jobOpeningsData.findIndex(
+      (dept) => dept.department === department
+    );
+
+    if (departmentIndex !== -1) {
+      jobOpeningsData[departmentIndex].openings.push(jobData);
     }
 
+    // try {
+    //   const response = await axios.post(
+    //     "http://localhost:5000/job-postings",
+    //     jobData
+    //   );
+    //   if (response.status === 201) {
+    //     console.log("job posting successfully added", response.data);
+    //     alert("job posting added successfully");
+    //   } else {
+    //     console.error("error adding job posting", response.error);
+    //     alert("failed to add job posting");
+    //   }
+    // } catch (error) {
+    //   console.error("error while submitting job data to the backend: ", error);
+    //   alert("an error occurred while submitting the job posting");
+    // }
 
     closeModal(false);
   };
@@ -253,6 +288,24 @@ export const Modal = ({ closeModal }) => {
                 handleInputChange();
               }}
             />
+          </div>
+
+          <div>
+            <label className="mr-5">Salary</label>
+            <select
+              className="text-black p-2 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none"
+              value={salary}
+              onChange={(e) => {
+                setSalary(e.target.value);
+                handleInputChange();
+              }}
+            >
+              {salaryRanges.map((range, index) => (
+                <option key={index} value={range}>
+                  {range}
+                </option>
+              ))}
+            </select>
           </div>
         </form>
 

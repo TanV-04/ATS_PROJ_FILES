@@ -19,16 +19,17 @@ import ManageJobOpenings from "./manageJobOpenings/ManageJobOpenings";
 
 const Layout = () => {
   const location = useLocation();
-  const showSearchIcon = location.pathname === "/applicantOverview"
+  const showSearchIcon1 = location.pathname === "/applicantOverview";
+  const showSearchIcon2 = location.pathname === "/manageJobOpenings";
   return (
     <div className="main">
-      <Navbar showSearchIcon={!showSearchIcon} />
+      <Navbar showSearchIcon1={!showSearchIcon1} />
       <div className="container">
         <div className="menuContainer">
           <Menu />
         </div>
         <div className="contentContainer">
-          <Outlet />
+          <Outlet context={{ showSearchIcon2: !showSearchIcon2 }} />
           {/* Outlet is a placeholder that allows you to render nested routes within a parent route. Means you can define routes that are rendered inside other routes. Useful for building complex UIs with shared layouts. */}
         </div>
       </div>

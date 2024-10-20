@@ -32,8 +32,10 @@ const ApplicantOverview = () => {
 
   const handleSearch = (term) => {
     setSearchTerm(term);
-    const filteredPosts = posts.filter((applicant) =>
-      applicant.appliedPosition.toLowerCase(term.toLowerCase())
+    const filteredPosts = posts.filter(
+      (applicant) =>
+        applicant.appliedPosition &&
+        applicant.appliedPosition.toLowerCase().includes(term.toLowerCase())
     );
     setSearchItem(filteredPosts);
   };
@@ -48,8 +50,12 @@ const ApplicantOverview = () => {
         <h1 className="text-3xl font-bold text-center text-white lg:text-4xl mb-6">
           Applicant Overview
         </h1>
+        <h2 className="text-lg text-center text-white lg:text-lg mb-6">
+          Filter based on Applied Positions
+        </h2>
 
         <SearchBar
+          handleSearch={handleSearch}
           posts={posts}
           setSearchItem={setSearchItem}
           searchIcon={<i className="fa-solid fa-magnifying-glass" />}

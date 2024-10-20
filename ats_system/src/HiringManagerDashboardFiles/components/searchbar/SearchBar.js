@@ -1,5 +1,5 @@
 import React from "react";
-import "../searchbar/searchbar.css"
+import "../searchbar/searchbar.css";
 
 const SearchBar = ({ posts, setSearchItem, searchIcon }) => {
   const handleSubmit = (e) => {
@@ -11,13 +11,20 @@ const SearchBar = ({ posts, setSearchItem, searchIcon }) => {
     const searchValue = e.target.value.toLowerCase();
 
     if (!searchValue) {
-      // reset to all posts if search is empty
+      // Reset to all posts if search is empty
       return setSearchItem(posts);
     }
 
-    const resultsArray = posts.filter(
-      (post) => post.appliedPosition.toLowerCase().includes(searchValue) // Convert to lowercase for comparison
-    );
+    const resultsArray = posts.filter((post) => {
+      return (
+        (post.appliedPosition &&
+          post.appliedPosition.toLowerCase().includes(searchValue)) ||
+        (post.departent &&
+          post.departent.toLowerCase().includes(searchValue)) ||
+        (post.title && post.title.toLowerCase().includes(searchValue)) ||
+        (post.location && post.location.toLowerCase().includes(searchValue))
+      );
+    });
 
     setSearchItem(resultsArray);
   };
