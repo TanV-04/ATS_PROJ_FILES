@@ -86,7 +86,10 @@ const applicantSchema = new mongoose.Schema({
 // models
 const JobApplication = mongoose.model("JobApplication", JobApplicationSchema);
 const SuccessfulHire = mongoose.model("SuccessfulHire", SuccessfulHireSchema);
-const CandidateDistribution = mongoose.model("CandidateDistribution",CandidateDistributionSchema);
+const CandidateDistribution = mongoose.model(
+  "CandidateDistribution",
+  CandidateDistributionSchema
+);
 const UserProfile = mongoose.model("UserProfile", UserProfileSchema); // user model
 const Applicant = mongoose.model("Applicant", Applicant);
 
@@ -168,6 +171,20 @@ app.get("/applicant", async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
+});
+
+app.put("/candidates/:id", (req, res) => {
+  const candidateId = req.params.id;
+  const { interviewDateTime, status } = req.body;
+
+  database
+    .updateCandidate(candidateId, { interviewDateTime, status })
+    .then(() =>
+      res.status(200).send({ message: "Interview updated successfully" })
+    )
+    .catch((error) =>
+      res.status(500).send({ error: "Error updating interview" })
+    );
 });
 
 const PORT = process.env.PORT || 5000;

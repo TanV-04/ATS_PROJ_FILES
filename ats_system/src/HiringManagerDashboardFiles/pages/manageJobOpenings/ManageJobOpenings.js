@@ -3,7 +3,6 @@ import { jobOpeningsData } from "../../../jobOpeningsData";
 import FloatingActionButton from "../../components/floatingActionButton/FloatingActionButton";
 import axios from "axios";
 import { Modal } from "../../components/modal/Modal"; // Adjust import based on your file structure
-
 const ManageJobOpenings = ({ showSearchIcon }) => {
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [filteredItems, setFilteredItems] = useState(

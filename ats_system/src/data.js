@@ -39,12 +39,12 @@ export const menu = [
         url: "/interviewScheduling",
         icon: "fa-solid fa-clipboard-question",
       },
-      {
-        id: 6,
-        title: "Generate Reports",
-        url: "/reports", // Adjust URL as necessary
-        icon: "fa-solid fa-file-alt",
-      },
+      // {
+      //   id: 6,
+      //   title: "Generate Reports",
+      //   url: "/reports", // Adjust URL as necessary
+      //   icon: "fa-solid fa-file-alt",
+      // },
     ],
   },
 

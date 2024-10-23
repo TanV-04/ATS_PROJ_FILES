@@ -12,18 +12,17 @@
 }
 
 .modalContainer {
-  width: 90%; 
-  max-width: 400px; 
+  width: 90%;
+  max-width: 1000px; /* Increased the max-width for a wider modal */
   height: auto;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: #f9f9f9;
   display: flex;
   flex-direction: column;
-  padding: 15px; /* Further reduced padding */
+  padding: 20px; /* Adjusted padding to give more room inside */
   animation: slide-down 0.3s ease-out;
 }
-
 @keyframes slide-down {
   from {
     transform: translateY(-50px);
@@ -110,7 +109,7 @@ textarea {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 12px; /* Further reduced margin */
+  margin-top: 12px;
   flex-wrap: wrap;
 }
 
@@ -158,4 +157,91 @@ textarea {
 .formGroup select:focus {
   border-color: cornflowerblue;
   outline: none;
+}
+
+.pickerContainer {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  margin: 16px 0; /* Add margin for spacing */
+  width: 100%; /* Ensure it takes the full width */
+  flex-wrap: wrap; /* Allow items to wrap if they overflow */
+}
+
+.datePickerWrapper,
+.timePickerWrapper {
+  align-items: center;
+  flex-grow: 1; /* Allow the picker wrappers to grow and take up available space */
+  max-width: 250px; /* Set a max width for both pickers */
+}
+
+.datePickerWrapper .react-datepicker,
+.timePickerWrapper .react-time-picker {
+  width: 100%; /* Ensure they take full width of their parent */
+}
+
+/* 
+.timePickerWrapper .react-time-picker {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
+  width: 100%; 
+  max-width: 100px;
+} */
+.timePickerWrapper {
+
+  max-width: 120px; /* Adjust max width for time picker as needed */
+}
+
+/* .timePickerWrapper .react-time-picker__wrapper {
+  border:#333;
+} */
+
+.cancelButton,
+.scheduleButton {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.cancelButton {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.cancelButton:hover {
+  background-color: #c0392b;
+}
+
+.scheduleButton {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.scheduleButton:hover {
+  background-color: #2980b9;
+}
+
+@media (max-width: 768px) {
+  .pickerContainer {
+    flex-direction: column;
+  }
+
+  .modalContainer {
+    width: 90%;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer button {
+    width: 100%;
+  }
 }
