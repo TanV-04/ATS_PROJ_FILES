@@ -379,7 +379,7 @@ const InterviewScheduling = () => {
           <h3 className="text-lg font-bold mb-4 text-gray-500">
             Filter Candidates on Department
           </h3>
-
+{/* 
           <div className="buttonsContainer">
             {filters.map((status, idx) => (
               <button
@@ -396,7 +396,7 @@ const InterviewScheduling = () => {
                 {status}
               </button>
             ))}
-          </div>
+          </div> */}
           <div className="flex justify-center mb-4">
             <button
               className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-700 transition duration-300"
