@@ -376,9 +376,9 @@ const InterviewScheduling = () => {
       <div className="schedule-container flex flex-wrap lg:flex-nowrap justify-between">
         <div className="candidatesContainer flex-1 bg-gray-100 p-4 rounded-lg mr-4">
           <h2 className="text-2xl font-bold mb-4 text-black">Candidates</h2>
-          <h3 className="text-lg font-bold mb-4 text-gray-500">
+          {/* <h3 className="text-lg font-bold mb-4 text-gray-500">
             Filter Candidates on Department
-          </h3>
+          </h3> */}
 {/* 
           <div className="buttonsContainer">
             {filters.map((status, idx) => (
