@@ -397,14 +397,14 @@ const InterviewScheduling = () => {
               </button>
             ))}
           </div> */}
-          <div className="flex justify-center mb-4">
+          {/* <div className="flex justify-center mb-4">
             <button
               className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-700 transition duration-300"
               onClick={clearFilters}
             >
               Clear All Filters
             </button>
-          </div>
+          </div> */}
           {filteredCandidates.map((candidate) => (
             <div
               key={candidate.id}
