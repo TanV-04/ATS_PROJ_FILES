@@ -17,5 +17,6 @@
 - npm install multer (install a middleware for handling multipart/form-data, used for uploading files)
 - npm install express cors
 - npm install react-datepicker
--npm install react-time-picker
-
+- npm install react-time-picker
+- npm install mdb-react-ui-kit
+- npm install --save react-dropzone

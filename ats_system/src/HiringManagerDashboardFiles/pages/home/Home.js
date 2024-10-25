@@ -12,12 +12,12 @@ const Home = () => {
   );
 
   // Set the name of the page in the browser
-  useEffect(() => {
-    document.title = "Home - Hiring Manager";
-    fetchJobApplicationsData();
-    fetchSuccessfulHiresData();
-    fetchCandidateDistributionData();
-  }, []);
+  // useEffect(() => {
+  //   document.title = "Home - Hiring Manager";
+  //   fetchJobApplicationsData();
+  //   fetchSuccessfulHiresData();
+  //   fetchCandidateDistributionData();
+  // }, []);
 
   const fetchJobApplicationsData = async () => {
     try {

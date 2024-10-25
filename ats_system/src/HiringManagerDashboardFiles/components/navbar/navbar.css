@@ -9,52 +9,52 @@
   background-color: #2a3447;
   z-index: 1000; /* Keep the navbar on top of other elements */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-  .logo {
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    gap: 10px;
-  }
-
-  .hamburger-icon {
-    display: none;
-    cursor: pointer;
-    font-size: 24px;
-  }
-
-  .icons {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-
-    .notification {
-      position: relative;
-
-      span {
-        background-color: red;
-        color: white;
-        border-radius: 50%;
-        height: 16px;
-        width: 16px;
-        position: absolute;
-        top: -10px;
-        right: -10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 12px;
-      }
-    }
-
-    .user {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      i {
-        object-fit: cover;
-      }
-    }
-  }
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  gap: 10px;
+}
+
+.hamburger-icon {
+  display: none; /* Change to block or flex if needed */
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.notification {
+  position: relative;
+}
+
+.notification span {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 12px; /* You might want to use font-size instead */
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user i {
+  object-fit: cover;
+}

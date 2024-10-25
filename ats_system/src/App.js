@@ -1,11 +1,13 @@
 import React from 'react';
 import MainComponent from './HiringManagerDashboardFiles/pages/MainComponent';
+import MainComponent1 from './UserDashboard/pages/MainComponent1';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <MainComponent />
+      {/* <MainComponent /> */}
+      <MainComponent1 />
     </div>
   );
 }
