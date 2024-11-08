@@ -20,3 +20,6 @@
 - npm install react-time-picker
 - npm install mdb-react-ui-kit
 - npm install --save react-dropzone
+- npm install mongodb
+- npm install dotenv
+- npm install mongoose

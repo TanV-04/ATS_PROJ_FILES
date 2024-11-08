@@ -22,7 +22,7 @@ const Home = () => {
   const fetchJobApplicationsData = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/job-applications"
+        "http://localhost:5000/job-applications"
       );
       const data = await response.json();
       setJobApplicationsData(data);

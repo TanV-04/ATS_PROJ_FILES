@@ -5,14 +5,16 @@ const jwt = require("jsonwebtoken");
 const multer = require("multer"); // middleware for handling file uploads
 const fs = require("fs");
 const path = require("path");
+const mongoDBConnectionString = "mongodb+srv://srishtiparulekar430:srishtiparulekar430@skillsetgocluster.tttbg.mongodb.net/?retryWrites=true&w=majority&appName=SkillSetGoCluster"
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+require('dotenv').config();
 
-mongoose.connect("mongoDBConnectionString", {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
-  useUnifiedTopolgy: true,
+  useUnifiedTopology: true
 });
 
 // const UserActivitySchema = new mongoose.Schema({
@@ -71,7 +73,7 @@ const UserProfileSchema = new mongoose.Schema({
   specialization: String,
 });
 
-const applicantSchema = new mongoose.Schema({
+const ApplicantSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true },
   phone: { type: String, required: true },
@@ -91,7 +93,7 @@ const CandidateDistribution = mongoose.model(
   CandidateDistributionSchema
 );
 const UserProfile = mongoose.model("UserProfile", UserProfileSchema); // user model
-const Applicant = mongoose.model("Applicant", Applicant);
+const Applicant = mongoose.model("Applicant", ApplicantSchema);
 
 // template endpoints (to fetch data and handle uploads)
 app.get("/job-applications", async (req, res) => {

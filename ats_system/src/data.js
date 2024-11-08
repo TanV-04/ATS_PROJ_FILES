@@ -52,12 +52,12 @@ export const menu = [
     id: 3,
     title: "ACCOUNT",
     listItems: [
-      {
-        id: 9,
-        title: "Settings",
-        url: "/settings", // Add this route if necessary
-        icon: "fa-solid fa-gear",
-      },
+      // {
+      //   id: 9,
+      //   title: "Settings",
+      //   url: "/settings", // Add this route if necessary
+      //   icon: "fa-solid fa-gear",
+      // },
       {
         id: 10,
         title: "Logout",

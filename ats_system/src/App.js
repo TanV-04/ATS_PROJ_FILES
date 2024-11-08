@@ -6,8 +6,8 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      {/* <MainComponent /> */}
-      <MainComponent1 />
+      <MainComponent />
+      {/* <MainComponent1 /> */}
     </div>
   );
 }
